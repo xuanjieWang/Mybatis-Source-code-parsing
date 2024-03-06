@@ -1,7 +1,4 @@
-﻿mybatis源码中文注释版
-
-阅读准备参考：https://www.jianshu.com/p/e739afb8fe31
-需要导入模块：需要将mybatis-parent模块导入。mybatis-parent模块链接 https://github.com/mybatis/parent
+﻿mybatis源码中文注释版： 项目本人使用
 
 1.兵马未动，日志先行
 org.apache.ibatis.logging
@@ -13,7 +10,6 @@ org.apache.ibatis.logging.log4j2
 org.apache.ibatis.logging.nologging
 org.apache.ibatis.logging.slf4j
 org.apache.ibatis.logging.stdout
-对象适配器设计模式
 设计模式可参考http://www.cnblogs.com/liuling/archive/2013/04/12/adapter.html
 
 2.异常
@@ -46,13 +42,13 @@ org.apache.ibatis.reflection.property
 org.apache.ibatis.reflection.wrapper
 可以参考MetaObjectTest来跟踪调试，基本上用到了reflection包下所有的类
 
-8.数据源
+8.数据源(三种数据源)
 org.apache.ibatis.datasource
 org.apache.ibatis.datasource.jndi
 org.apache.ibatis.datasource.pooled
 org.apache.ibatis.datasource.unpooled
 
-9.事务
+9.事务(jdbc事务和事务管理器)
 org.apache.ibatis.transaction
 org.apache.ibatis.transaction.jdbc
 org.apache.ibatis.transaction.managed
