@@ -15,16 +15,15 @@
  */
 package org.apache.ibatis.transaction.jdbc;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.TransactionIsolationLevel;
 import org.apache.ibatis.transaction.Transaction;
 import org.apache.ibatis.transaction.TransactionException;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * {@link Transaction} that makes use of the JDBC commit and rollback facilities directly.
@@ -32,13 +31,13 @@ import org.apache.ibatis.transaction.TransactionException;
  * Delays connection retrieval until getConnection() is called.
  * Ignores commit or rollback requests when autocommit is on.
  *
- * @see JdbcTransactionFactory
+ * @see org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory
  */
 /**
  * @author Clinton Begin
  */
 /**
- * Jdbc事务。直接利用JDBC的commit,rollback。
+ * Jdbc事务。直接利用JDBC的commit,rollback。事务管理的过程
  * 它依赖于从数据源得 到的连接来管理事务范围。 
  */
 public class JdbcTransaction implements Transaction {
@@ -99,6 +98,7 @@ public class JdbcTransaction implements Transaction {
     }
   }
 
+  // 设置事务的自动提交
   protected void setDesiredAutoCommit(boolean desiredAutoCommit) {
     try {
 		//和原来的比一下，再设置autocommit，是考虑多次重复设置的性能问题？

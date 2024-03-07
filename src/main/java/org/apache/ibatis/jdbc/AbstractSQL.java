@@ -162,7 +162,7 @@ public abstract class AbstractSQL<T> {
     return sb.toString();
   }
 
-  //安全的Appendable
+  //安全的Appendable，追加字符串序列。提供统一的方式将不同类型的输出流追加字符内容。所有的字符串都可以
   private static class SafeAppendable {
     private final Appendable a;
     private boolean empty = true;
@@ -221,6 +221,10 @@ public abstract class AbstractSQL<T> {
         // Prevent Synthetic Access
     }
 
+    //     sqlClause(builder, "SELECT DISTINCT", select, "", "", ", ");
+    /**    字符串构建器，keyword判断是什么语句  open是开始位置的元素，close是结尾的元素，conjunction表示是后续
+     *
+     * **/
     private void sqlClause(SafeAppendable builder, String keyword, List<String> parts, String open, String close,
                            String conjunction) {
       if (!parts.isEmpty()) {
